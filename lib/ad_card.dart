@@ -10,14 +10,22 @@ class AdCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: Colors.white,
+    return Container(
+      padding: EdgeInsets.all(2.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image.network(
-            link,
-            height: 70,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15.0),
+            child: Image.network(
+              link,
+              height: 70,
+              fit: BoxFit.fitHeight,
+            ),
           ),
           Text(title),
           Text(price)

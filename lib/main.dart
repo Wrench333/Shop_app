@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
           ),
           actions: [
             Container(
+              padding: EdgeInsets.all(3),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
               ),
               child: const Icon(
                 Icons.shopping_cart,
-                size: 32,
+                size: 30,
               ),
             ),
             const SizedBox(

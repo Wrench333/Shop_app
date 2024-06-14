@@ -11,8 +11,9 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return Container(
-      width: 170,
+      width: size.width / 2 - 32,
       height: 40,
       decoration: BoxDecoration(
         color: color,
@@ -39,7 +40,7 @@ class CategoryCard extends StatelessWidget {
 }
 
 const card = CategoryCard(
-  title: "text",
+  title: "Text",
   link:
       "https://p7.hiclipart.com/preview/179/880/857/apple-watch-series-3-apple-watch-series-2-b-h-photo-video-smartwatch-smart.jpg",
   color: Colors.brown,

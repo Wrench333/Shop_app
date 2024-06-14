@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shop_app/ad_card.dart';
 import 'package:shop_app/category_card.dart';
+import 'package:shop_app/quick_pick.dart';
 
 class Body extends StatefulWidget {
   const Body({super.key});
@@ -34,6 +35,7 @@ class _BodyState extends State<Body> {
                   prefixIcon: const Icon(Icons.search_rounded),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10),
                   suffixIcon: Container(
+                    margin: EdgeInsets.all(8.0),
                     width: 70,
                     height: 4,
                     decoration: BoxDecoration(
@@ -59,9 +61,12 @@ class _BodyState extends State<Body> {
           const SizedBox(
             height: 25,
           ),
-          const Text(
-            "Shop by Category",
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: const Text(
+              "Shop by Category",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
+            ),
           ),
           const SizedBox(
             height: 20,
@@ -87,72 +92,69 @@ class _BodyState extends State<Body> {
           const SizedBox(
             height: 20,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            height: 250,
-            color: Colors.orange[300],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  "Text",
-                  style: TextStyle(fontSize: 20),
-                ),
-                const Text(
-                  "get up to 50% off on your\nfaviourite products",
-                  style: TextStyle(fontSize: 20),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  height: 120,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 20,
-                    itemBuilder: (context, index) => adCard,
-                    separatorBuilder: (context, index) => const SizedBox(
-                      width: 10,
-                    ),
+          Stack(
+            children: [
+              Positioned(
+                child: Container(
+                  margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  height: 250,
+                  color: Colors.orange[300],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Text",
+                        style: TextStyle(fontSize: 25),
+                      ),
+                      const Text(
+                        "get up to 50% off on your\nfaviourite products",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        height: 120,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 20,
+                          itemBuilder: (context, index) => adCard,
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 11,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+              Positioned(
+                  top: -10,
+                  right: 0,
+                  child: Image.network(
+                      fit: BoxFit.fill,
+                      height: 125,
+                      "https://img.pokemondb.net/artwork/bulbasaur.jpg")),
+            ],
           ),
           const SizedBox(
             height: 30,
           ),
-          const Text(
-            "Quick Picks",
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+            child: const Text(
+              "Quick Picks",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
+            ),
           ),
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 17.0),
-            child: Row(
-              children: [
-                Container(
-                  height: 200,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                  ),
-                ),
-                const SizedBox(
-                  width: 50,
-                ),
-                Container(
-                  height: 200,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    border: Border.all(),
-                  ),
-                ),
-              ],
-            ),
+            child: QuickPick(),
           ),
           const SizedBox(
             height: 30,
